@@ -31,35 +31,29 @@ objectWrapper.innerHTML += imageTags;
 const objects = document.getElementsByClassName(`object`)
 
 objects[counterImages].classList.add(`active`);
+//next.addEventListener("click", function () {}
+//previous.addEventListener("click", function () {}
 
 //click cambiamento img
 const interval = setInterval(function () {
+  objects[counterImages].classList.remove(`active`);
+  objects[++counterImages].classList.add(`active`);
+  console.log(objects);
+  previous.classList.remove(`hide`);
+  if (counterImages === images.length - 1) {
+    next.classList.add(`hide`)
+  } else {
+    previous.classList.remove(`hide`)
+  };
 
-  next.addEventListener("click", function () {
-    objects[counterImages].classList.remove(`active`);
-    objects[++counterImages].classList.add(`active`);
-    console.log(objects);
-    previous.classList.remove(`hide`);
-    if (counterImages === images.length - 1) {
-      next.classList.add(`hide`)
-    } else {
-      previous.classList.remove(`hide`)
-    }
-  });
-
-  previous.addEventListener("click", function () {
-    objects[counterImages].classList.remove(`active`);
-    objects[--counterImages].classList.add(`active`);
-
-    previous.classList.remove(`hide`);
-    if (counterImages === 0) {
-      previous.classList.add(`hide`)
-    } else {
-      next.classList.remove(`hide`)
-    }
-
-  });
-
-}, 2000)
+  objects[counterImages].classList.remove(`active`);
+  objects[--counterImages].classList.add(`active`);
+  previous.classList.remove(`hide`);
+  if (counterImages === 0) {
+    previous.classList.add(`hide`)
+  } else {
+    next.classList.remove(`hide`)
+  }
+}, 2000);
 
 
