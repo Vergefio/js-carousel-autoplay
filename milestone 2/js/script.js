@@ -34,11 +34,10 @@ objects[counterImages].classList.add(`active`);
 //next.addEventListener("click", function () {}
 //previous.addEventListener("click", function () {}
 
-//click cambiamento img
+//cambiamento automatico img
 const interval = setInterval(function () {
   objects[counterImages].classList.remove(`active`);
   objects[++counterImages].classList.add(`active`);
-  console.log(objects);
   previous.classList.remove(`hide`);
   if (counterImages === images.length - 1) {
     next.classList.add(`hide`)
