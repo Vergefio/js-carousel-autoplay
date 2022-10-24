@@ -19,7 +19,6 @@ for (let i = 0; i < images.length; i++) {
 console.log(objectWrapper);
 
 
-
 // bottoni
 const next = document.querySelector(`.bottom`);
 const previous = document.querySelector(`.top`);
@@ -34,27 +33,33 @@ const objects = document.getElementsByClassName(`object`)
 objects[counterImages].classList.add(`active`);
 
 //click cambiamento img
+const interval = setInterval(function () {
 
-next.addEventListener("click", function () {
-  objects[counterImages].classList.remove(`active`);
-  objects[++counterImages].classList.add(`active`);
+  next.addEventListener("click", function () {
+    objects[counterImages].classList.remove(`active`);
+    objects[++counterImages].classList.add(`active`);
+    console.log(objects);
+    previous.classList.remove(`hide`);
+    if (counterImages === images.length - 1) {
+      next.classList.add(`hide`)
+    } else {
+      previous.classList.remove(`hide`)
+    }
+  });
 
-  previous.classList.remove(`hide`);
-  if (counterImages === images.lenght - 1) {
-    next.classList.add(`hide`)
-  }
+  previous.addEventListener("click", function () {
+    objects[counterImages].classList.remove(`active`);
+    objects[--counterImages].classList.add(`active`);
 
-});
+    previous.classList.remove(`hide`);
+    if (counterImages === 0) {
+      previous.classList.add(`hide`)
+    } else {
+      next.classList.remove(`hide`)
+    }
 
-previous.addEventListener("click", function () {
-  objects[counterImages].classList.remove(`active`);
-  objects[--counterImages].classList.add(`active`);
+  });
 
-  next.classList.remove(`hide`);
-  if (counterImages === images.lenght - 1) {
-    next.classList.add(`hide`)
-  }
+}, 2000)
 
-});
 
-console.log(objects);
