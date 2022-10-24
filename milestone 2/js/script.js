@@ -20,9 +20,9 @@ console.log(objectWrapper);
 
 
 // bottoni
-const next = document.querySelector(`.bottom`);
-const previous = document.querySelector(`.top`);
-previous.classList.add("hide")
+//const next = document.querySelector(`.bottom`);
+//const previous = document.querySelector(`.top`);
+//previous.classList.add("hide")
 
 //image tags
 
